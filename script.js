@@ -1,27 +1,3 @@
-const jogador = {
-    corpo: document.querySelector("#jogador"),
-    velocidadeDeMovimento: 30,
-    olhando: 'direita'
-}
-const pressionado = {
-    d: false,
-    a: false,
-    w: false,
-    s: false
-}
-const loopDeAnimacao = {
-    intervaloA: false,
-    intervaloD: false,
-    intervaloW: false,
-    intervaloS: false
-}
-const andandoPara = {
-    direita: false,
-    esquerda: false,
-    cima: false,
-    baixo: false,
-}
-
 function funcaoJogador(evento) {
     let tecla = evento.key;
     if (tecla == 'a') {
@@ -171,3 +147,4 @@ function disfuncaoJogador(evento) {
 
 window.addEventListener('keydown', funcaoJogador)
 window.addEventListener('keyup', disfuncaoJogador)
+
