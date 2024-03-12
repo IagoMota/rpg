@@ -1,3 +1,4 @@
-import jogador from "./src/jogador.js"
-
-console.log(jogador)
+import player from "./src/player.js"
+import perebinha from "./src/animationLoops.js"
+import keyboardControls from "./src/playerControls.js"
+import movementDirections from "./src/walkingTo.js"

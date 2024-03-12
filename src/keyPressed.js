@@ -1,3 +1,4 @@
+//Tecla que está fisicamente pressionada no momento
 const keyboardControl = {
     d: false,
     a: false,
