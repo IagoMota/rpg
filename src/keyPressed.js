@@ -1,8 +1,8 @@
 //Tecla que está fisicamente pressionada no momento
-const keyboardControl = {
+const keyPressed = {
     d: false,
     a: false,
     w: false,
     s: false
 }
-export default keyboardControl;
+export default keyPressed;

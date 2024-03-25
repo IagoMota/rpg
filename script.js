@@ -1,4 +1,3 @@
-
 function disfuncaoJogador(evento) {
     let tecla = evento.key;
     if (tecla == 'a') {
