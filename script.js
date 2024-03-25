@@ -61,5 +61,4 @@ function disfuncaoJogador(evento) {
     }
 }
 
-window.addEventListener('keydown', funcaoJogador)
 window.addEventListener('keyup', disfuncaoJogador)
