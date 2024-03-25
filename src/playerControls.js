@@ -1,5 +1,7 @@
 import keyPressed from "./keyPressed.js"
 import walkingTo from "./walkingTo.js"
+import animationLoops from "./animationLoops.js"
+import player from "./player.js"
 
 function playerControls(evento) {
     let tecla = evento.key;
@@ -7,17 +9,17 @@ function playerControls(evento) {
         if (keyPressed.a == false) {
             keyPressed.a = true;
             walkingTo.esquerda = true;
-            clearInterval(loopDeAnimacao.intervaloD)
+            clearInterval(animationLoops.intervaloD)
             walkingTo.direita = false;
-            let velhaDistancia = Number(getComputedStyle(jogador.corpo).left.split("px")[0]);
-            let novaDistancia = velhaDistancia - jogador.velocidadeDeMovimento;
-            jogador.corpo.style.left = novaDistancia + "px";
-            jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
-            loopDeAnimacao.intervaloA = setInterval(() => {
-                let velhaDistancia = Number(getComputedStyle(jogador.corpo).left.split("px")[0]);
-                let novaDistancia = velhaDistancia - jogador.velocidadeDeMovimento;
-                jogador.corpo.style.left = novaDistancia + "px";
-                jogador.olhando = 'esquerda'
+            let velhaDistancia = Number(getComputedStyle(player.corpo).left.split("px")[0]);
+            let novaDistancia = velhaDistancia - player.velocidadeDeMovimento;
+            player.corpo.style.left = novaDistancia + "px";
+            player.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
+            animationLoops.intervaloA = setInterval(() => {
+                let velhaDistancia = Number(getComputedStyle(player.corpo).left.split("px")[0]);
+                let novaDistancia = velhaDistancia - player.velocidadeDeMovimento;
+                player.corpo.style.left = novaDistancia + "px";
+                player.olhando = 'esquerda'
             }, 100);
         }
     }
@@ -25,39 +27,39 @@ function playerControls(evento) {
         if (keyPressed.d == false) {
             keyPressed.d = true;
             walkingTo.d = true;
-            clearInterval(loopDeAnimacao.intervaloA)
+            clearInterval(animationLoops.intervaloA)
             walkingTo.a = false;
-            let velhaDistancia = Number(getComputedStyle(jogador.corpo).left.split("px")[0]);
-            let novaDistancia = velhaDistancia + jogador.velocidadeDeMovimento;
-            jogador.corpo.style.left = novaDistancia + "px";
-            jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
-            loopDeAnimacao.intervaloD = setInterval(() => {
-                let velhaDistancia = Number(getComputedStyle(jogador.corpo).left.split("px")[0]);
-                let novaDistancia = velhaDistancia + jogador.velocidadeDeMovimento;
-                jogador.corpo.style.left = novaDistancia + "px";
-                jogador.olhando = 'direita'
+            let velhaDistancia = Number(getComputedStyle(player.corpo).left.split("px")[0]);
+            let novaDistancia = velhaDistancia + player.velocidadeDeMovimento;
+            player.corpo.style.left = novaDistancia + "px";
+            player.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
+            animationLoops.intervaloD = setInterval(() => {
+                let velhaDistancia = Number(getComputedStyle(player.corpo).left.split("px")[0]);
+                let novaDistancia = velhaDistancia + player.velocidadeDeMovimento;
+                player.corpo.style.left = novaDistancia + "px";
+                player.olhando = 'direita'
             }, 100);
         }
     }
     if (tecla == 'w') {
         if (keyPressed.w == false) {
             keyPressed.w = true;
-            let velhaDistancia = Number(getComputedStyle(jogador.corpo).top.split("px")[0]);
-            let novaDistancia = velhaDistancia - jogador.velocidadeDeMovimento;
-            jogador.corpo.style.top = novaDistancia + "px";
-            if (jogador.olhando == 'direita') {
-                jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
-            } else if (jogador.olhando == 'esquerda') {
-                jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
+            let velhaDistancia = Number(getComputedStyle(player.corpo).top.split("px")[0]);
+            let novaDistancia = velhaDistancia - player.velocidadeDeMovimento;
+            player.corpo.style.top = novaDistancia + "px";
+            if (player.olhando == 'direita') {
+                player.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
+            } else if (player.olhando == 'esquerda') {
+                player.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
             }
-            loopDeAnimacao.intervaloW = setInterval(() => {
-                let velhaDistancia = Number(getComputedStyle(jogador.corpo).top.split("px")[0]);
-                let novaDistancia = velhaDistancia - jogador.velocidadeDeMovimento;
-                jogador.corpo.style.top = novaDistancia + "px";
-                if (jogador.olhando == 'direita') {
-                    jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
-                } else if (jogador.olhando == 'esquerda') {
-                    jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
+            animationLoops.intervaloW = setInterval(() => {
+                let velhaDistancia = Number(getComputedStyle(player.corpo).top.split("px")[0]);
+                let novaDistancia = velhaDistancia - player.velocidadeDeMovimento;
+                player.corpo.style.top = novaDistancia + "px";
+                if (player.olhando == 'direita') {
+                    player.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
+                } else if (player.olhando == 'esquerda') {
+                    player.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
                 }
             }, 100);
         }
@@ -65,22 +67,22 @@ function playerControls(evento) {
     if (tecla == 's') {
         if (keyPressed.s == false) {
             keyPressed.s = true;
-            let velhaDistancia = Number(getComputedStyle(jogador.corpo).top.split("px")[0]);
-            let novaDistancia = velhaDistancia + jogador.velocidadeDeMovimento;
-            jogador.corpo.style.top = novaDistancia + "px";
-            if (jogador.olhando == 'direita') {
-                jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
-            } else if (jogador.olhando == 'esquerda') {
-                jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
+            let velhaDistancia = Number(getComputedStyle(player.corpo).top.split("px")[0]);
+            let novaDistancia = velhaDistancia + player.velocidadeDeMovimento;
+            player.corpo.style.top = novaDistancia + "px";
+            if (player.olhando == 'direita') {
+                player.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
+            } else if (player.olhando == 'esquerda') {
+                player.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
             }
-            loopDeAnimacao.intervaloS = setInterval(() => {
-                let velhaDistancia = Number(getComputedStyle(jogador.corpo).top.split("px")[0]);
-                let novaDistancia = velhaDistancia + jogador.velocidadeDeMovimento;
-                jogador.corpo.style.top = novaDistancia + "px";
-                if (jogador.olhando == 'direita') {
-                    jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
-                } else if (jogador.olhando == 'esquerda') {
-                    jogador.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
+            animationLoops.intervaloS = setInterval(() => {
+                let velhaDistancia = Number(getComputedStyle(player.corpo).top.split("px")[0]);
+                let novaDistancia = velhaDistancia + player.velocidadeDeMovimento;
+                player.corpo.style.top = novaDistancia + "px";
+                if (player.olhando == 'direita') {
+                    player.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
+                } else if (player.olhando == 'esquerda') {
+                    player.corpo.style.backgroundImage = "url('./assets/walking/walking-left.gif')";
                 }
             }, 100);
         }
