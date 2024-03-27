@@ -33,7 +33,7 @@ body {
     border: solid purple 2px;
 }
 
-#inimigo {
+.inimigo {
     position: absolute;
     top: calc(100% - 200px);
     left: 400px;

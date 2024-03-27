@@ -30,11 +30,13 @@ function playerControls(evento) {
             clearInterval(animationLoops.intervaloA)
             walkingTo.a = false;
             let velhaDistancia = Number(getComputedStyle(player.corpo).left.split("px")[0]);
+            
             let novaDistancia = velhaDistancia + player.velocidadeDeMovimento;
             player.corpo.style.left = novaDistancia + "px";
             player.corpo.style.backgroundImage = "url('./assets/walking/walking-right.gif')";
             animationLoops.intervaloD = setInterval(() => {
                 let velhaDistancia = Number(getComputedStyle(player.corpo).left.split("px")[0]);
+                console.log(velhaDistancia)
                 let novaDistancia = velhaDistancia + player.velocidadeDeMovimento;
                 player.corpo.style.left = novaDistancia + "px";
                 player.olhando = 'direita'
